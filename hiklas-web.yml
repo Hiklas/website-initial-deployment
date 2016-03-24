@@ -1,0 +1,13 @@
+---
+- hosts: hiklas-webserver
+  vars:
+    dns_name: www
+    dns_domain: hiklas.com
+    dns_fqdn: www.hiklas.com
+  tasks:
+    - include: web-server.yml
+  handlers:
+    - include: web-handlers.yml
+
+
+    
