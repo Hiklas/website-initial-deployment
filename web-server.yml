@@ -7,6 +7,9 @@
        - git
        - nginx
 
+   - name: Pull website
+     git: dest=/var/www/html repo=https://github.com/Hiklas/website-initial.git update=yes clone=yes
+
    - name: Copy nginx config 
      template: src=./nginx/default.conf dest=/etc/nginx/conf.d/default.conf 
 
