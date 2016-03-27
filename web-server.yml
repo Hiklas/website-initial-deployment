@@ -12,6 +12,12 @@
 
    - name: Copy nginx config 
      template: src=./nginx/default.conf dest=/etc/nginx/conf.d/default.conf 
+   
+   - name: Enable and start firewalld
+     service: name=firewalld enabled=yes state=started
+
+   - name: Disable postfix for now
+     service: name=postfix enabled=no state=stopped 
 
    - name: Enable firewall services for HTTP(S) permanently
      firewalld: service={{ item }} permanent=true immediate=true state=enabled
